@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@model List<AdventureBlog.Models.Article>
+
+@foreach (var article in Model)
+{
+    <div class="row">
+        <div class="article col-md-6">
+            <h2>@article.Title</h2>
+            <div>
+                Posted on <i>@article.Date</i>
+               @if (article.Author != null)
+               {
+                   @:by <i>@article.Author.FullName (@article.Author.UserName)</i>
+               }
+            </div>
+            <div>
+            <p>@article.Body</p>
+            </div>
+           
+        </div>
+    </div>
+}
